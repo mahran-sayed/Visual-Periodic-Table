@@ -1,13 +1,705 @@
-body {
+/***** Fonts *****/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+/***** End Fonts *****/
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --black: #15202B;
+  --light-grey: #B1DBF6;
+  --dark-grey: #2A2E47;
+  --yellow: #FFD243;
+  --light-green: #8BCA01;
+  --dark-green: #349400;
+  --green: #00A79B;
+  --light-violet: #CE54FE;
+  --dark-violet: #8D33E0;
+  --light-red: #F93751;
+  --dark-red: #F73A50;
+  --light-blue: #01AFFE;
+  --dark-blue: #0062E1;
 }
+
+body{
+  background-color: var(--dark-grey);
+  color: #fff;
+}
+
+.content{
+  display: flex;
+  height: 780px;
+  overflow: hidden;
+}
+
+
+/***** Header *****/
+header{
+  text-align: center;
+  font-size: 26px;
+  padding: 6px;
+  height: 72px;
+  background-color: var(--black);
+
+}
+/***** End Header *****/
+
+
+/***** Info Section *****/
+
+.info{
+  width: 20%;
+  height: 100%;
+  margin: 8px 0 0 8px;
+  background-color: var(--black);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+  /* Header Atomic Number and Atomic Mass */
+.info  .header{
+  display: flex;
+  justify-content: space-between;
+  padding: 9px;
+  font-size: 14px;
+  text-align: center;
+}
+.info .header .symbol-number{
+  font-size: larger;
+}
+  /* End Header Atomic Number and Atomic Mass */
+
+  /* Image Container  */
+.info .img-container{
+  width: 100%;
+  height: 250px;
+  background-size: 100% 100% !important;
+  position: relative;
+}
+  /* Banner Styling */
+.info .img-container .name{
+  width: fit-content;
+  padding: 8px;
+}
+  /* End Banner Styling */
+
+  /* Catagory Phase */
+.catagory-phase{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 4px;
+}
+
+  /* End of Catagory Phase */
+
+  /* Info Modal Button */
+.img-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.show-img-data{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 4px;
+  top: 4px;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.show-img-data:hover{
+  transform: scale(1.1);
+}
+  /* End Info Modal Button */
+
+  /* Info Modal */
+.img-data{
+  position: absolute;
+  width: 450px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  background-color: var(--black);
+  color: #fff;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.img-data.hide{
+  display: none;
+}
+.img-data h4{
+  text-align: center;
+}
+.img-data p{
+  font-size: 14px;
+}
+.img-data .underline{
+  width: 50px;
+  height: 0px;
+  border: 2px solid var(--yellow);
+  border-radius: 8px;
+  margin: 0 auto;
+}
+.img-data a{
+  color: var(--yellow);
+}
+.img-data .close{
+  width: 90px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--dark-red);
+}
+.img-data .close:hover{
+  transform: scale(1.1);
+  transition: all 0.3s linear;
+}
+    /* End Info Modal */
+
+  /* End Image Container */
+
+
+  /* Properties */
+.property-container .property{
+  font-size: 16px;
+  color: var(--light-red);
+}
+.property-container:not(:last-child, .image){
+  padding: 8px;
+  border-bottom: 1px solid var(--light-grey);
+} 
+
+.property-container:not(.custom){
+  display: flex;
+  align-items: center;
+}
+
+.property-container:nth-child(3){
+  text-transform: capitalize;
+}
+
+.property-container:not(.custom) .property{
+  flex: 1.5;
+}
+
+.property-container:not(.custom) .value{
+  flex: 1;
+  font-size: 14px;
+}
+
+.property-container .value .unit{
+  color: var(--yellow);
+}
+
+  /* Ionization Energies */
+
+.property-container.ionization-energies .value div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.property-container.ionization-energies .value div p:not(:last-child){
+  flex: 1;
+}
+.property-container.ionization-energies .value div p:last-child{
+  flex: 1.5;
+}
+
+  /* End Ionization Energies */
+
+  /* Summary */
+.property-container.summary span.chevron{
+  transform: rotate(90deg);
+  display: block;
+  float: right;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.property-container.summary.hide span.chevron{
+  transform: rotate(-90deg);
+}
+
+
+.property-container.summary.hide .value{
+  display: none;
+  
+}
+
+.property-container .summary span.chevron::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  /* End Summary */
+  
+  /* Atom */
+.property-container.electron-shell{
+  height: max-content;
+  margin: 12px auto;
+}
+.property-container.electron-shell .data{
+  text-align: center;
+}
+
+.property-container.electron-shell .data h4{
+  color: var(--light-red);
+}
+
+
+
+.atom{
+  margin: 12px auto;
+}
+.shell{
+  animation: shell 10s infinite linear;
+}
+@keyframes shell {
+  0%{
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+  /* End Atom */
+
+  /* End Properties */
+
+
+/***** End Info Section *****/
+
+
+
+/***** Element Banner Name  in Info Tabs*****/
+.info  div.name.nonmetal {
+  background-color: rgba(255, 210, 67, 0.5);
+}
+
+.info div.name.alkali.metal{
+  background-color: rgba(42, 46, 71, 0.5);
+}
+
+.info div.name.alkaline.earth{
+  background-color: rgba(141, 51, 224, 0.5);
+}
+
+.info div.name.transition.metal{
+  background-color: rgba(247, 58, 80, 0.5);
+}
+
+.info div.name.metalloid {
+  background-color: rgba(52, 148, 0, 0.5);
+}
+
+.info div.name.post-transition{
+  background-color: rgba(0, 167, 155, 0.5);
+}
+
+.info div.name.unknown{
+  background-color: rgba(177, 219, 246, 0.5);
+}
+
+.info div.name.noble.gas{
+  background-color: rgba(206, 84, 254, 0.5);
+}
+
+.info div.name.lanthanide {
+  background-color: rgba(0, 98, 225, 0.5);
+}
+
+.info div.name.actinide{
+  background-color: rgba(1, 175, 254, 0.5);
+}
+/***** End Element Banner Name  in Info Tabs *****/
+
+/***** Side *****/
+.side{
+  width: 80%;
+}
+
+/***** End Side *****/
+
+
+.table{
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 2px;
+  width: 98%;
+  height: auto;
+  text-align: center;
+  margin: 12px;
+  overflow-x: auto;
+}
+
+.table > div{
+  height: 67px;
+  width: 67px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--dark-grey);
+  transition: all 0.3s linear;
+}
+
+.table > div:hover{
+  transform: scale(1.1);
+}
+
+
+/***** Element Header *****/
+.table div .header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #fff;
+}
+/***** End Element Header *****/
+
+/***** Element Symbol *****/
+.table div .symbol{
+  font-size: 24px;
+  font-weight: 900;
+}
+/***** End Element Symbol *****/
+
+/***** Element Footer (Element Name) *****/
+.table div .footer h6{
+  font-size: 10px;
+  color: #fff;
+}
+/***** End Element Footer (Element Name) *****/
+
+
+/***** Element By Catagory *****/
+.table div.nonmetal {
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+}
+
+.table div.alkali.metal{
+  border: 2px solid var(--light-green);
+  color: var(--light-green);
+}
+
+.table div.alkaline.earth{
+  border: 2px solid var(--dark-violet);
+  color: var(--dark-violet);
+}
+
+.table div.transition.metal{
+  border: 2px solid var(--dark-red);
+  color: var(--dark-red);
+}
+
+.table div.metalloid {
+  border: 2px solid var(--dark-green);
+  color: var(--dark-green);
+}
+
+.table div.post-transition{
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+
+.table div.unknown{
+  border: 2px solid var(--light-grey);
+  color: var(--light-grey);
+}
+
+.table div.noble.gas{
+  border: 2px solid var(--light-violet);
+  color: var(--light-violet);
+}
+
+.table div.lanthanide {
+  border: 2px solid var(--dark-blue);
+  color: var(--dark-blue);
+}
+
+.table div.actinide{
+  border: 2px solid var(--light-blue);
+  color: var(--light-blue);
+}
+
+
+/***** End Element By Catagory *****/
+
+
+
+/***** Elements Grid *****/
+.e1,.e2{
+  grid-row: 1 / 2;
+}
+.e3,.e4,.e5,.e6,.e7,.e8,.e9,.e10{
+  grid-row: 2 / 3;
+}
+.e11,.e12,.e13,.e14,.e15,.e16,.e17,.e18{
+  grid-row: 3 / 4;
+}
+.e19,.e20,.e21,.e22,.e23,.e24,.e25,.e26,.e27,.e28,.e29,.e30,.e31,.e32,.e33,.e34,.e35,.e36{
+  grid-row: 4 / 5;
+}
+.e37,.e38,.e39,.e40,.e41,.e42,.e43,.e44,.e45,.e46,.e47,.e48,.e49,.e50,.e51,.e52,.e53,.e54{
+  grid-row: 5 / 6;
+}
+.e55,.e56,.e57,.e72,.e73,.e74,.e75,.e76,.e77,.e78,.e79,.e80,.e81,.e82,.e83,.e84,.e85,.e86{
+  grid-row: 6 / 7;
+}
+.e87,.e88,.e89,.e104,.e105,.e106,.e107,.e108,.e109,.e110,.e111,.e112,.e113,.e114,.e115,.e116,.e117,.e118{
+  grid-row: 7 / 8;
+}
+
+.e58,.e59,.e60,.e61,.e62,.e63,.e64,.e65,.e66,.e67,.e68,.e69,.e70,.e71{
+  grid-row: 8 / 9;
+}
+
+.e90,.e91,.e92,.e93,.e94,.e95,.e96,.e97,.e98,.e99,.e100,.e101,.e102,.e103{
+  grid-row: 9 / 10;
+}
+
+
+.e4,.e12,.e20,.e38,.e56,.e88{
+  grid-column: 2 / 3;
+}
+.e21,.e39,.e57{
+  grid-column: 3 / 4;
+}
+.e22,.e40,.e72,.e104,.e58,.e90{
+  grid-column: 4 / 5;
+}
+
+.e23,.e41,.e73,.e105,.e59,.e91{
+  grid-column: 5 / 6;
+}
+
+.e24,.e42,.e74,.e106,.e60,.e92{
+  grid-column: 6 / 7;
+}
+
+.e25,.e43,.e75,.e107,.e61,.e93{
+  grid-column: 7 / 8;
+}
+
+.e26,.e44,.e76,.e108,.e62,.e94{
+  grid-column: 8 / 9;
+}
+
+.e27,.e45,.e77,.e109,.e63,.e95{
+  grid-column: 9 / 10;
+}
+
+.e28,.e46,.e78,.e110,.e64,.e96{
+  grid-column: 10 / 11;
+}
+.e29,.e47,.e79,.e111,.e65,.e97{
+  grid-column: 11 / 12;
+}
+.e30,.e48,.e80,.e112,.e66,.e98{
+  grid-column: 12 / 13;
+}
+
+.e5,.e13,.e31,.e49,.e81,.e113,.e67,.e99{
+  grid-column: 13 / 14;
+}
+
+.e6,.e14,.e32,.e50,.e82,.e114,.e68,.e100{
+  grid-column: 14 / 15;
+}
+.e7,.e15,.e33,.e51,.e83,.e115,.e69,.e101{
+  grid-column: 15 / 16;
+}
+.e8,.e16,.e34,.e52,.e84,.e116,.e70,.e102{
+  grid-column: 16 / 17;
+}
+.e9,.e17,.e35,.e53,.e85,.e117,.e71,.e103{
+  grid-column: 17 / 18;
+}
+.e2,.e10,.e18,.e36,.e54,.e86,.e118{
+  grid-column: 18 / 19;
+}
+/***** End Elements Grid *****/
+
+
+/***** Custom Scrollbar *****/
+::-webkit-scrollbar{
+  width: 10px; 
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #333;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: var(--black);
+}
+/***** End Custom Scrollbar *****/
+
+
+/***** Appendix *****/
+
+.appendix{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 8px;
+  overflow: hidden;
+}
+.appendix .catagory{
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+  transition: all 0.3s linear;  
+}
+
+.appendix .catagory:hover{
+  transform: scale(1.02);
+}
+
+.appendix .square{
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.appendix .reactive.nonmentals .square{
+  border: 2px solid var(--yellow);
+}
+
+.appendix .transition.metal .square{
+  border: 2px solid var(--dark-red);
+}
+
+.appendix .noble.gas .square{
+  border: 2px solid var(--light-violet);
+}
+
+.appendix .alkali.metal .square{
+  border: 2px solid var(--light-green);
+}
+
+.appendix .metalloid .square{
+  border: 2px solid var(--dark-green);
+}
+
+.appendix .lanthanide .square{
+  border: 2px solid var(--dark-blue);
+}
+
+.appendix .alkaline.earth .square{
+  border: 2px solid var(--dark-violet);
+}
+
+.appendix .post-transition.metal .square{
+  border: 2px solid var(--green);
+}
+
+.appendix .actinide .square{
+  border: 2px solid var(--light-blue);
+}
+
+
+/***** End Appendix *****/
+
+
+
+/***** Footer *****/
+footer{
+  margin-top: 18px;
+  height: 67px;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+}
+footer p, footer a{
+  font-family: 'Caveat', cursive !important;
+  font-size: 20px;
+}
+footer a{
+  color: var(--yellow);
+}
+
+footer span.love{
+  color: var(--yellow);
+}
+
+/***** End Footer *****/
+
+
+/***** Media Query *****/
+@media only screen and (max-width: 768px) {
+  .content{
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    overflow: hidden;
+  }
+  .info{
+    padding: 20px;
+    width: 95%;
+    order: 2;
+  }
+
+  .info .img-data{
+    width: 350px;
+  }
+
+  .side{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .side .table{
+    overflow-y: auto;
+    margin: 5px auto;
+    padding: 10px;
+    order: 2;
+  }
+
+  .side .appendix{
+    margin-top: 8px;
+    grid-template-columns: auto auto;
+  }
+
+  .side .appendix div:last-child{
+    grid-column: 1 / 3;
+    margin: 0 auto;
+  }
+
+}
+
+/***** End Media Query *****/

@@ -1,0 +1,51 @@
+
+.credits{
+    height: calc(100vh - 72px - 67px - 18px);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* All links */
+.credits a{
+    color: var(--yellow);
+    font-family: 'Caveat', cursive !important;
+}
+
+/* Show Button */
+.showButton{
+    display: inline-block;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    color: #000;
+    line-height: 1;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+/* Inpired By List */
+.credits ul{
+    list-style-type: none;
+}
+
+/* Go Home Button*/
+.goBack{
+    width: 130px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 14px;
+    color: #000;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--yellow);
+}
+
+.goBack:hover{
+    transform: scale(1.1);
+}
+
