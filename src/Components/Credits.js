@@ -4,7 +4,7 @@ function Credits({toggleHomeCredit}){
         <div className={styles.credits}>
             {/* Periodic Table Design Credit */}
             <div className="credit">
-                <p>Periodic Table Desing Inspired by: Image by <a href="https://www.freepik.com/free-vector/periodic-table-design-template_29760123.htm#query=periodic%20table&position=12&from_view=search">Freepik</a></p> 
+                <p>Periodic Table Design Inspired by: Image by <a href="https://www.freepik.com/free-vector/periodic-table-design-template_29760123.htm#query=periodic%20table&position=12&from_view=search">Freepik</a></p> 
             </div>
             {/* End Periodic Table Design Credit */}
 

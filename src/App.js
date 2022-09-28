@@ -1,4 +1,4 @@
-import React, {useState, createContext, useContext} from 'react';
+import React, {useState, createContext} from 'react';
 import Header from './Components/Header';
 import Info from './Components/Info';
 import Table from './Components/Table';
