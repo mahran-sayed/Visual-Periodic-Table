@@ -1,7 +1,8 @@
 # :atom_symbol: Visual Periodic Table :atom_symbol:	
 
-It's a simple periodic table built using React. It conains some awesome data like:
+It's a simple periodic table built using React. It conains some awesome data about elements.
 
+## :bookmark_tabs: Contents :bookmark_tabs:
 - Picture of each element
 - Atomic Number
 - Atomic Mass
